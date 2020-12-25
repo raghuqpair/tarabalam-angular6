@@ -1,0 +1,328 @@
+<div id="travel-calculator-page">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="clearfix">
+        <div class="widgets">
+          <div class="box">
+            <div class="box-title">
+              Travel Calculator
+            </div>
+            <div class="selector" style="margin-bottom: 0px; background: url('assets/images/pattern-1.jpg') ">
+              <div style="font-size: 16px;">
+                Start the calculator by entering Destination Day and then Arrival Day. You can change the days, city and month and see which days are good for travel.
+              </div>
+              <br/>
+              <div class="row form-group">
+                <div class="col-md-4 col-sm-6">
+                  <b>Select your Nakshatra :</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelStar" (change)="starChange()">
+                    <ng-option *ngFor="let business of businesses; index as i" value="{{i + 1}}">{{business}}</ng-option>
+                  </ng-select>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <b>Year</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelYear">
+                    <ng-option *ngFor="let tyear of travelYearArray" [value]="tyear">{{tyear}}</ng-option>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-4 col-sm-6">
+                  <b>Select your Departure Country:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelDCity" (change)="getEventDepartureTravel()">
+                    <ng-option *ngFor="let city of cities" [value]="city.value">{{city.name}}</ng-option>
+                  </ng-select>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <b>Departure Day:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelDDay" (change)="getEventDepartureTravel()">
+                    <ng-option *ngFor="let tday of travelDayArray" [value]="tday">{{tday}}</ng-option>
+                  </ng-select>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <b>Departure Month:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelDMonth" (change)="getEventDepartureTravel()">
+                      <ng-option *ngFor="let tmonth of travelMonthArray; index as i" [value]="i">{{tmonth}}</ng-option>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-4 col-sm-6">
+                  <b>Select your  Arrival Country:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelCity" (change)="getEventArrivalTravel()">
+                    <ng-option *ngFor="let city of cities" [value]="city.value">{{city.name}}</ng-option>
+                  </ng-select>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <b>Arrival Day:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelDay" (change)="getEventArrivalTravel()">
+                    <ng-option *ngFor="let tday of travelDayArray" [value]="tday">{{tday}}</ng-option>
+                 </ng-select>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <b>Arrival Month:</b>
+                  <ng-select [clearable]="false" [(ngModel)]="travelMonth" (change)="getEventArrivalTravel()">
+                      <ng-option *ngFor="let tmonth of travelMonthArray; index as i" [value]="i">{{tmonth}}</ng-option>
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6" *ngIf="travelDepartureEventDay.length">
+                <div class="box-content">
+                  <div *ngFor="let tDevents of travelDepartureEventDay">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="modal-title"> Departure Day Muhurtham</h3>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                      <div class="timeline-container">
+                        <div class="text-center timeline-label">
+                          <b>
+                            <i class="fa fa-star orange"></i> Departure Day Star
+                          </b>
+                        </div>
+
+                        <div class="timeline-items">
+                          <div class="timeline-item clearfix">
+                            <div class="timeline-info">
+                              <span class="timeline-date">12:01 am</span>
+                              <i class="timeline-indicator icon icon-star btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                  <span class="text-110 semi">
+                                    <a href="javacript:void(0)" class="purple bolder">
+                                      {{tDevents.star1name}}
+                                    </a>
+                                  </span>
+                                  <br>
+                                  <a href="javacript:void(0)">{{tDevents.star1comment}}</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div *ngIf="tDevents.starttill1 !== &#39;23:59&#39;" class="timeline-item clearfix">
+                            <div class="timeline-info">
+                              <span class="timeline-date">{{tDevents.starttill1}}</span>
+                              <i class="timeline-indicator btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                  <span class="text-110 semi">
+                                    <a href="javacript:void(0)" class="purple bolder">
+                                      {{tDevents.star2name}}
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <a href="javacript:void(0)">{{tDevents.star2comment}}</a>
+                            </div>
+                          </div>
+
+                          <div class="timeline-item clearfix">
+                            <div class="timeline-info">
+                              <span class="timeline-date">{{tDevents.starttill2}}</span>
+                              <i class="timeline-indicator btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding"> End of Day </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <table class="table table-bordered table-condensed table-striped table-hover">
+                          <tbody>
+                            <tr>
+                              <td class="green bolder semi" data-title="&#39;Tithi&#39;">Tithi</td>
+                              <td data-title="&#39;tithi&#39;">
+                                {{tDevents.tithi}}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="red bolder semi" data-title="&#39;masam&#39;">Masam</td>
+                              <td data-title="&#39;Masam&#39;">{{tDevents.schedulePatternDetail}}</td>
+                            </tr>
+                            <tr>
+                              <td class="red bolder semi" data-title="&#39;vardhaym">
+                                Vardhyam Timings
+                              </td>
+                              <td data-title="&#39;vardhyam">
+                                {{tDevents.vardhyam}}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="black bolder" data-title="&#39;Dur muhurtham&#39;">
+                                Durmuhurtham Timings
+                              </td>
+                              <td data-title="&#39;Dur muhurtham">
+                                {{tDevents.durmuhurtha}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" *ngIf="travelArrivalEventDay.length">
+                <div class="box-content">
+                  <div *ngFor="let tevents of travelArrivalEventDay">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="modal-title">Arrival Day Muhurtham</h3>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                      <div class="timeline-container">
+                        <div class="text-center timeline-label">
+                          <b>
+                            <i class="fa fa-star orange"></i> Arrival Day Star
+                          </b>
+                        </div>
+
+                        <div class="timeline-items">
+                          <div class="timeline-item clearfix">
+
+                            <div class="timeline-info">
+                              <span class="timeline-date">12:01 am</span>
+                              <i class="timeline-indicator icon icon-star btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                  <span class="text-110 semi">
+                                    <a href="javacript:void(0)" class="purple bolder">
+                                      {{tevents.star1name}}
+                                    </a>
+                                  </span>
+                                  <br>
+                                  <a href="javacript:void(0)">{{tevents.star1comment}}</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div *ngIf="tevents.starttill1 !== &#39;23:59&#39;" class="timeline-item clearfix">
+                            <div class="timeline-info">
+                              <span class="timeline-date">{{tevents.starttill1}}</span>
+                              <i class="timeline-indicator btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                  <span class="text-110 semi">
+                                    <a href="javacript:void(0)" class="purple bolder">
+                                      {{tevents.star2name}}
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <a href="javacript:void(0)">{{tevents.star2comment}}</a>
+                            </div>
+                          </div>
+
+                          <div class="timeline-item clearfix">
+                            <div class="timeline-info">
+                              <span class="timeline-date">{{tevents.starttill2}}</span>
+                              <i class="timeline-indicator btn btn-info no-hover"></i>
+                            </div>
+
+                            <div class="widget-box transparent">
+                              <div class="widget-body">
+                                <div class="widget-main no-padding"> End of Day </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <table class="table table-bordered table-condensed table-striped table-hover">
+                          <tbody>
+                            <tr>
+                              <td class="green bolder semi" data-title="&#39;Tithi&#39;">Tithi</td>
+                              <td data-title="&#39;tithi&#39;">
+                                {{tevents.tithi}}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="red bolder semi" data-title="&#39;masam&#39;">Masam</td>
+                              <td data-title="&#39;Masam&#39;">{{tevents.schedulePatternDetail}}</td>
+                            </tr>
+                            <tr>
+                              <td class="red bolder semi" data-title="&#39;vardhaym">
+                                Vardhyam Timings
+                              </td>
+                              <td data-title="&#39;vardhyam">
+                                {{tevents.vardhyam}}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="black bolder" data-title="&#39;Dur muhurtham&#39;">
+                                Durmuhurtham Timings
+                              </td>
+                              <td data-title="&#39;Dur muhurtham">
+                                {{tevents.durmuhurtha}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  #sidebar {}
+
+  #sidebar ul {
+    padding: 0;
+  }
+
+  #sidebar ul li {
+    list-style: none;
+  }
+
+  #sidebar .box {
+    background: rgba(255, 198, 86, 0.2);
+  }
+
+
+  #sidebar ul li a {
+    font-size: 16px;
+  }
+
+  .box-title {
+    cursor: pointer;
+  }
+
+  .box-title i {
+    float: right;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+</style>

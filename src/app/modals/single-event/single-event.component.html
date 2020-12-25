@@ -1,0 +1,9 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Day's Muhurtham</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <app-event-timeline [event]="event" [loggedIn]="loggedIn"></app-event-timeline>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" (click)="close()">Close</button>
+</div>

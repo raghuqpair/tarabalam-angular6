@@ -1,0 +1,95 @@
+<div class="row wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+
+
+   <div class="col-xs-6">
+   <span class="text-primary font35"><img src="assets/images/{{sign.imageName}}" alt="logo missing">{{sign.rasiName}} Rasi</span>
+        <ul class="nav nav-tabs elements_desc signsingle_nav" role="tablist">
+            <li class="active">
+                <a href="#tab1" (click)="showTab(1)" role="tab" data-toggle="tab"><span class="font14 blog_pre">Today's Panchangam</span></a>
+            </li>
+            <li>
+                <a href="#tab3" (click)="showTab(3)" role="tab" data-toggle="tab"><span class="font14">Monthly Predictions</span></a>
+            </li>
+            <li>
+                <a href="#tab4" (click)="showTab(4)" role="tab" data-toggle="tab"><span class="font14">Yearly Predictions</span></a>
+            </li>
+        </ul>
+        <div class="tab-content tab_singlepost">
+            <div [ngClass]="{'active': isActiveTab(1)}" class="tab-pane" id="tab1">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="elements_desc">
+                            {{sign.today}}
+                            <br/>
+                            <br/>
+                            <h3>Day's Muhurtham</h3>
+                            <app-event-timeline [loggedIn]="!!this.profile.id" [event]="event"></app-event-timeline>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div [ngClass]="{'active': isActiveTab(2)}" class="tab-pane" id="tab2">
+                <div class="elements_desc">
+                  <ul *ngIf="sign.weekly" style="padding-left: 0; text-decoration: none;">
+                    <li><b>Business</b>: {{sign.weekly.business}}</li>
+                    <li><b>Job And Career</b>: {{sign.weekly.jobAndCareer}}</li>
+                    <li><b>Family</b>: {{sign.weekly.family}}</li>
+                    <li><b>Summary</b>: {{sign.weekly.summary}}</li>
+                  </ul>
+                </div>
+            </div>
+            <div [ngClass]="{'active': isActiveTab(3)}" class="tab-pane" id="tab3">
+                <div class="elements_desc">
+                  <ul *ngIf="sign.monthly" style="padding-left: 0; text-decoration: none;">
+                    <li><b>Business</b>: {{sign.monthly.business}}</li>
+                    <li><b>Job And Career</b>: {{sign.monthly.jobAndCareer}}</li>
+                    <li><b>Family</b>: {{sign.monthly.family}}</li>
+                    <li><b>Summary</b>: {{sign.monthly.summary}}</li>
+                  </ul>
+                </div>
+            </div>
+            <div [ngClass]="{'active': isActiveTab(4)}" class="tab-pane" id="tab4">
+                <div class="elements_desc">
+                  <ul *ngIf="sign.yearly" style="padding-left: 0; text-decoration: none;">
+                    <li><b>Business</b>: {{sign.yearly.business}}</li>
+                    <li><b>Job And Career</b>: {{sign.yearly.jobAndCareer}}</li>
+                    <li><b>Family</b>: {{sign.yearly.family}}</li>
+                    <li><b>Summary</b>: {{sign.yearly.summary}}</li>
+                  </ul>
+                </div>
+            </div>
+            <div [ngClass]="{'active': isActiveTab(5)}" class="tab-pane" id="tab5">
+                <p class="elements_desc">
+                    {{sign.dailyMantras}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12 ">
+        <div class="row">
+            <div class="col-xs-12">
+                <h5 class="text-center bg-info text-white right_sidebar_dimension font14">LOGIN FOR PERSONALIZED INSIGHTS</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 font16 games_align">
+                <p  class="common_margin  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInRight;">
+                    <a href="javacript:void(0)">
+                        <i class="fa fa-search"></i>&nbsp;&nbsp;Personalized results
+                    </a>
+                </p>
+                <p  class="common_margin  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInRight;">
+                    <a href="javacript:void(0)">
+                        <i class="fa fa-eye"></i>&nbsp;&nbsp;Recommended mantras for your horoscope
+                    </a>
+                </p>
+                <p  class="common_margin  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInRight;">
+                    <a href="javacript:void(0)">
+                        <i class="fa fa-calendar "></i>&nbsp;&nbsp;  Free muhurtha/horoscope service
+                    </a>
+                </p>
+                <hr class="hr_margin">
+            </div>
+        </div>
+    </div>
+</div>

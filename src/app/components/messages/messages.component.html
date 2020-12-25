@@ -1,0 +1,73 @@
+<div class="clearfix">
+  <h2 class="pull-left">MESSAGES</h2>
+  <div class="pull-right">
+    <button class="btn btn-primary pull-right" [routerLink]="['/messages', 'new']" *ngIf="profile.role=='USER'">Post Question/Schedule Puja</button>
+    &nbsp;&nbsp;&nbsp;
+    <span class="text-right"><small><b>Show closed</b></small>&nbsp;&nbsp;
+      <div (click)="toggleStatus()" class="switch-button" [ngClass]="{ active: showClosed }"></div>
+    </span>
+    <br />
+    <span class="badge badge-danger pull-right" style="margin-top: 10px;">Unread: {{unreadCount}} / {{messageCount}}</span>
+  </div>
+</div>
+
+<div id="messages">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-left">Query Type</th>
+        <th class="text-left">Query </th>
+        <th class="text-left">Created At</th>
+        <th class="text-left">Created By</th>
+        <th class="text-left" *ngIf="profile.role == 'ADMIN'">Assigned To</th>
+        <th style="text-align: center !important;">Status</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!loading">
+      <tr *ngFor="let message of messages">
+        <td>
+          <input type="checkbox" [(ngModel)]="message.selected" />
+        </td>
+        <td>
+          {{message.type}}
+        </td>
+        <td>
+          <a class="message-title" [routerLink]="['/messages', message.id]">{{message.content}}</a>
+        </td>
+        <td>
+          {{message.createdAt | date:'yyyy-MM-dd'}}
+        </td>
+        <td>
+          {{message.createdBy.firstName + ' ' + message.createdBy.lastName}}
+        </td>
+        <td *ngIf="profile.role == 'ADMIN'">
+          <select [(ngModel)]="message.astrologerId" (change)="updateMessage({'astrologerId': message.astrologerId || null}, message)">s
+            <option value>Unassigned</option>
+            <option *ngFor="let astrologer of astrologers" [value]="astrologer.id">{{astrologer.firstName + ' ' + astrologer.lastName}}</option>
+          </select>
+        </td>
+        <td class="text-center">
+          <span *ngIf="profile.role=='USER'">{{message.status}}</span>
+          <select [(ngModel)]="message.status" (change)="updateMessage({status: message.status}, message)" *ngIf="profile.role!='USER'">
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="loading">
+      <tr>
+        <td style="height: 200px; padding-top: 75px;" class="text-center" colspan="7">
+          <i class="fa fa-spinner fa-pulse fa-3x"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <li [ngClass]="{disabled: currentPage < 1}"><a (click)="currentPage > 0 && changePage(currentPage-1)"><i class="fa fa-chevron-left"></i></a></li>
+    <li *ngFor="let page of pages" [ngClass]="{active: currentPage == page}" ng-hide="currentPage < page-2 || currentPage > page+2"><a (click)="changePage(page)">
+    {{page+1}}</a></li>
+    <li [ngClass]="{disabled: currentPage == pages.length -1 }"><a (click)="currentPage < pages.length - 1 && changePage(currentPage+1)"><i class="fa fa-chevron-right"></i></a></li>
+  </div>
+</div>

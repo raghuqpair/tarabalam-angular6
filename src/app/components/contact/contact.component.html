@@ -1,0 +1,44 @@
+<form method="post">
+    <div class="row">
+        <div class="col-md-12 m-t-26">
+            <h1 class="text-primary">Send a Message</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row m-t-20">
+        <div class="col-md-12">
+            <img src="assets/images/Contact-Line-Stripe.jpg" alt="loading" class="img-responsive">
+        </div>
+    </div>
+    <div class="row content_margin con_pad">
+        <div class="col-md-4 contact_block">
+            <div>
+                <label for="contact" class="text-info content_margin">Subject:</label>
+                <select name="select_type" class="contact_select form-control" style="width: 100%">
+                    <option value="">Choose</option>
+                    <option value="customerservice">Customer service</option>
+                    <option value="registration">Registration</option>
+                    <option value="plans">Plans</option>
+                </select>
+                <label for="contact_name" class="text-info label_align">Name:</label>
+                <input type="text" name="name" id="contact_name" class="contact_name form-control">
+                <label for="contact_email" class="text-info label_align">Email:</label>
+                <input type="email" name="email" id="contact_email" class="contact_email form-control">
+            </div>
+        </div>
+        <div class="col-md-8 contact_block">
+            <div>
+                <label for="contact_text" class="text-info content_margin">Message:</label>
+                <textarea name="message" id="contact_text" cols="30" rows="8" class="form-control"
+                          placeholder="Your message comes here.."></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="align_btn contact_block text-center">
+                <input type="submit" class="btn btn-sm btn-primary content_margin m-b-25" value="Send Now">
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,172 @@
+<div class="row small-gap">
+  <div class="col-md-4">
+    <div [ngClass]="{'input-group': showAddOn}">
+      <ng-select [clearable]="false" [(ngModel)]="hour" name="ngHours" required (change)="modelChange($event)">
+        <ng-option value="1">01</ng-option>
+        <ng-option value="2">02</ng-option>
+        <ng-option value="3">03</ng-option>
+        <ng-option value="4">04</ng-option>
+        <ng-option value="5">05</ng-option>
+        <ng-option value="6">06</ng-option>
+        <ng-option value="7">07</ng-option>
+        <ng-option value="8">08</ng-option>
+        <ng-option value="9">09</ng-option>
+        <ng-option value="10">10</ng-option>
+        <ng-option value="11">11</ng-option>
+        <ng-option value="12">12</ng-option>
+        <ng-option value="13">13</ng-option>
+        <ng-option value="14">14</ng-option>
+        <ng-option value="15">15</ng-option>
+        <ng-option value="16">16</ng-option>
+        <ng-option value="17">17</ng-option>
+        <ng-option value="18">18</ng-option>
+        <ng-option value="19">19</ng-option>
+        <ng-option value="20">20</ng-option>
+        <ng-option value="21">21</ng-option>
+        <ng-option value="22">22</ng-option>
+        <ng-option value="23">23</ng-option>
+        <ng-option value="24">24</ng-option>
+      </ng-select>
+      <input type="hidden" name="Hours" [value]="hour" />
+      <span *ngIf="showAddOn" class="input-group-addon" style="min-width: 34px;">hh</span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div [ngClass]="{'input-group': showAddOn}">
+      <ng-select [clearable]="false" [(ngModel)]="minute" name="ngMinutes" required (change)="modelChange($event)">
+        <ng-option value="0">00</ng-option>
+        <ng-option value="1">01</ng-option>
+        <ng-option value="2">02</ng-option>
+        <ng-option value="3">03</ng-option>
+        <ng-option value="4">04</ng-option>
+        <ng-option value="5">05</ng-option>
+        <ng-option value="6">06</ng-option>
+        <ng-option value="7">07</ng-option>
+        <ng-option value="8">08</ng-option>
+        <ng-option value="9">09</ng-option>
+        <ng-option value="10">10</ng-option>
+        <ng-option value="11">11</ng-option>
+        <ng-option value="12">12</ng-option>
+        <ng-option value="13">13</ng-option>
+        <ng-option value="14">14</ng-option>
+        <ng-option value="15">15</ng-option>
+        <ng-option value="16">16</ng-option>
+        <ng-option value="17">17</ng-option>
+        <ng-option value="18">18</ng-option>
+        <ng-option value="19">19</ng-option>
+        <ng-option value="20">20</ng-option>
+        <ng-option value="21">21</ng-option>
+        <ng-option value="22">22</ng-option>
+        <ng-option value="23">23</ng-option>
+        <ng-option value="24">24</ng-option>
+        <ng-option value="25">25</ng-option>
+        <ng-option value="26">26</ng-option>
+        <ng-option value="27">27</ng-option>
+        <ng-option value="28">28</ng-option>
+        <ng-option value="29">29</ng-option>
+        <ng-option value="30">30</ng-option>
+        <ng-option value="31">31</ng-option>
+        <ng-option value="32">32</ng-option>
+        <ng-option value="33">33</ng-option>
+        <ng-option value="34">34</ng-option>
+        <ng-option value="35">35</ng-option>
+        <ng-option value="36">36</ng-option>
+        <ng-option value="37">37</ng-option>
+        <ng-option value="38">38</ng-option>
+        <ng-option value="39">39</ng-option>
+        <ng-option value="40">40</ng-option>
+        <ng-option value="41">41</ng-option>
+        <ng-option value="42">42</ng-option>
+        <ng-option value="43">43</ng-option>
+        <ng-option value="44">44</ng-option>
+        <ng-option value="45">45</ng-option>
+        <ng-option value="46">46</ng-option>
+        <ng-option value="47">47</ng-option>
+        <ng-option value="48">48</ng-option>
+        <ng-option value="49">49</ng-option>
+        <ng-option value="50">50</ng-option>
+        <ng-option value="51">51</ng-option>
+        <ng-option value="52">52</ng-option>
+        <ng-option value="53">53</ng-option>
+        <ng-option value="54">54</ng-option>
+        <ng-option value="55">55</ng-option>
+        <ng-option value="56">56</ng-option>
+        <ng-option value="57">57</ng-option>
+        <ng-option value="58">58</ng-option>
+        <ng-option value="59">59</ng-option>
+      </ng-select>
+      <input type="hidden" name="Minutes" [value]="minute" />
+      <span *ngIf="showAddOn" class="input-group-addon" style="min-width: 34px;">mm</span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div [ngClass]="{'input-group': showAddOn}">
+      <ng-select [clearable]="false" [(ngModel)]="second" name="ngSeconds" required (change)="modelChange($event)">
+        <ng-option value="0">00</ng-option>
+        <ng-option value="1">01</ng-option>
+        <ng-option value="2">02</ng-option>
+        <ng-option value="3">03</ng-option>
+        <ng-option value="4">04</ng-option>
+        <ng-option value="5">05</ng-option>
+        <ng-option value="6">06</ng-option>
+        <ng-option value="7">07</ng-option>
+        <ng-option value="8">08</ng-option>
+        <ng-option value="9">09</ng-option>
+        <ng-option value="10">10</ng-option>
+        <ng-option value="11">11</ng-option>
+        <ng-option value="12">12</ng-option>
+        <ng-option value="13">13</ng-option>
+        <ng-option value="14">14</ng-option>
+        <ng-option value="15">15</ng-option>
+        <ng-option value="16">16</ng-option>
+        <ng-option value="17">17</ng-option>
+        <ng-option value="18">18</ng-option>
+        <ng-option value="19">19</ng-option>
+        <ng-option value="20">20</ng-option>
+        <ng-option value="21">21</ng-option>
+        <ng-option value="22">22</ng-option>
+        <ng-option value="23">23</ng-option>
+        <ng-option value="24">24</ng-option>
+        <ng-option value="25">25</ng-option>
+        <ng-option value="26">26</ng-option>
+        <ng-option value="27">27</ng-option>
+        <ng-option value="28">28</ng-option>
+        <ng-option value="29">29</ng-option>
+        <ng-option value="30">30</ng-option>
+        <ng-option value="31">31</ng-option>
+        <ng-option value="32">32</ng-option>
+        <ng-option value="33">33</ng-option>
+        <ng-option value="34">34</ng-option>
+        <ng-option value="35">35</ng-option>
+        <ng-option value="36">36</ng-option>
+        <ng-option value="37">37</ng-option>
+        <ng-option value="38">38</ng-option>
+        <ng-option value="39">39</ng-option>
+        <ng-option value="40">40</ng-option>
+        <ng-option value="41">41</ng-option>
+        <ng-option value="42">42</ng-option>
+        <ng-option value="43">43</ng-option>
+        <ng-option value="44">44</ng-option>
+        <ng-option value="45">45</ng-option>
+        <ng-option value="46">46</ng-option>
+        <ng-option value="47">47</ng-option>
+        <ng-option value="48">48</ng-option>
+        <ng-option value="49">49</ng-option>
+        <ng-option value="50">50</ng-option>
+        <ng-option value="51">51</ng-option>
+        <ng-option value="52">52</ng-option>
+        <ng-option value="53">53</ng-option>
+        <ng-option value="54">54</ng-option>
+        <ng-option value="55">55</ng-option>
+        <ng-option value="56">56</ng-option>
+        <ng-option value="57">57</ng-option>
+        <ng-option value="58">58</ng-option>
+        <ng-option value="59">59</ng-option>
+      </ng-select>
+      <input type="hidden" name="Seconds" [value]="second" />
+      <span *ngIf="showAddOn" class="input-group-addon" style="min-width: 34px; border-radius: 0 4px 4px 0">ss</span>
+      <input type="hidden" name="ZoneHour" value="0" />
+      <input type="hidden" name="ZoneMin" value="0" />
+    </div>
+  </div>
+</div>

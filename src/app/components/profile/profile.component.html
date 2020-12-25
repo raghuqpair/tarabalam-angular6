@@ -1,0 +1,81 @@
+<div id="profile-page">
+  <h4>Please complete the user profile section before posting your queries to astrologer</h4>
+  <button class="btn btn-primary pull-right" [routerLink]="['/messages']" *ngIf="user.role=='USER'">Proceed to Ask your Astrologer</button>
+  <h2 style="margin-left:40%">Edit User Profile</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group form-group">
+        <span class="input-group-addon">First name</span>
+        <input type="text" class="form-control" [(ngModel)]="user.firstName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Last name</span>
+        <input type="text" class="form-control" [(ngModel)]="user.lastName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Email</span>
+        <input type="email" class="form-control" [(ngModel)]="user.email" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Day of Birth</span>
+          <input type="text"
+            matInput [matDatepicker]="picker" class="form-control"
+            [max]="maxDate"
+            [formControl]="user.dob"
+            (dateChange)="datePickerChange($event)"
+          />
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" (click)="picker.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+      <form>
+        <input id="dobDay" type="hidden" name="Day" [value]="dob.day"/>
+        <input id="dobMonth" type="hidden" name="Month" [value]="dob.month" />
+        <input id="dobYear" type="hidden" name="Year" [value]="dob.year" />
+        <div class="input-group form-group">
+          <span class="input-group-addon">Time of Birth</span>
+          <input type="text" class="form-control" [ngxTimepicker]="tp" [max]="maxTime" [disableClick]="true" [value]="tob.time"/>
+          <ngx-material-timepicker #tp (timeSet)="timeOfBirthChange($event)"></ngx-material-timepicker>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" (click)="tp.open()"><i style="font-size: 18px;" class="fa fa-clock-o"></i></button>
+          </span>
+        </div>
+        <input type="hidden" name="Hours" [value]="tob.hour" />
+        <input type="hidden" name="Minutes" [value]="tob.minute" />
+        <input type="hidden" name="Seconds" [value]="tob.second" />
+        <input type="hidden" name="ZoneHour" value="0" />
+        <input type="hidden" name="ZoneMin" value="0" />
+        <div class="input-group form-group">
+          <span class="input-group-addon">Place of Birth</span>
+          <app-place-of-birth [model]="user.placeOfBirth" (onChange)="placeOfBirthChange($event)"></app-place-of-birth>
+        </div>
+      </form>
+      <div>
+        <button class="btn btn-success" type="submit" [disabled]="!canSubmit()"  (click)="updateProfile()">Update</button> &nbsp;
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h4 style="margin-left:40%">Reset Password Section</h4>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Old password</span>
+        <input class="form-control" type="password" [(ngModel)]="pw.oldPassword" placeholder="*********" />
+      </div>
+
+      <div class="input-group form-group">
+        <span class="input-group-addon">New password</span>
+        <input class="form-control" type="password" [(ngModel)]="pw.newPassword" />
+      </div>
+
+      <div class="input-group form-group">
+        <span class="input-group-addon">Confirm password</span>
+        <input class="form-control" type="password" [(ngModel)]="pw.confirmPassword" />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-warning" style="margin-left:40%" (click)="changePassword()" [disabled]="!pw.newPassword || !pw.confirmPassword || !pw.oldPassword">Reset Password</button>
+</div>

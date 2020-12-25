@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-6 col-xs-12 ">
+        <div class="row">
+            <div class="col-xs-12">
+                <h5 class="text-center bg-info text-white right_sidebar_dimension font14">Holidays</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 font16 games_align">
+              <div *ngFor="let holiday of holidays">
+                <p class="common_margin  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInRight;">
+                    <a href="javacript:void(0)">
+                        <i class="fa fa-calendar"></i>&nbsp;&nbsp;{{holiday.carePlanName}}
+                    </a>
+                </p>
+                <hr ng-repeat-end class="hr_margin">
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h1 class="text-primary font35 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">Free Daily Horoscopes</h1>
+<p class="m-t-20 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s">What kind of day will it be for you today? Use our free horoscope service  to plan your day, every day -
+    instantly!</p>
+<div class="row">
+    <div *ngFor="let sign of signs" class="col-xs-6 col-sm-4 brand_name wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
+        <div class="sign_circle bg-aries">
+            <img src="assets/images/{{sign.imageName}}" alt="image-missing" class="rotate">
+        </div>
+        <div class="main">
+        <a [routerLink]="['signs', sign.id]">
+            <div class="sign_card text-center signs_bg">
+                <span class="text-aries signs_clr font16">{{sign.rasiName}}</span><br>
+            </div>
+        </a>
+        </div>
+    </div>
+</div>

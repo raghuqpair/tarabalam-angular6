@@ -1,0 +1,64 @@
+<div id="single-message">
+	<h2 class="clearfix" >
+		<span class="pull-right">
+			<button class="btn btn-info" [routerLink]="['/messages']">Back</button>
+			<button *ngIf="message.status !== 'closed'" style="margin-left: 15px;" class="btn btn-danger" (click)="closeMessage()">Close Message</button>
+		</span>
+	</h2>
+	<form #messageForm="ngForm">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>
+						<span>Event name</span>
+						<select [(ngModel)]="message.type" name="messageType" class="form-control" required [disabled]="message.messageId">
+							<option value>Select Event</option>
+							<option *ngFor="let event of events" [value]="event">{{event}}</option>
+						</select>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<span>Event place</span>
+						<input class="form-control" name="eventPlace" [(ngModel)]="message.eventPlace" [disabled]="message.messageId"/>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>
+				<span>Message content</span>
+				<textarea class="message-content form-control" name="messageContent" [(ngModel)]="message.content" required [disabled]="message.messageId"></textarea>
+			</label>
+		</div>
+	</form>
+	<div *ngIf="message.messageId">
+		<div class="conversation">
+			<div class="comment clearfix" *ngFor="let comment of message.comments" [ngClass]="{own: message.createdById === comment.createdById}">
+				<div>
+					<div class="author">
+						<b class="text-blue">{{comment.createdBy.firstName + ' ' + comment.createdBy.lastName}}
+						</b>
+					</div>
+					<div class="comment-content"><span>{{comment.content}}</span></div>
+				</div>
+			</div>
+		</div>
+
+		<form *ngIf="message.status !== 'closed'">
+			<hr />
+			<h3>Reply</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="comment-form" *ngIf="message.messageId">
+						<textarea class="form-control" [(ngModel)]="newComment.content" name="commentContent"></textarea>
+						<br>
+						<button class="btn btn-success" (click)="addComment()" [disabled]="!newComment.content">Reply</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<br><br>
+</div>

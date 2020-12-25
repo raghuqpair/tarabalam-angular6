@@ -1,0 +1,122 @@
+<div class="timeline-container">
+  <div class="text-center timeline-label">
+    <div class="timeline-items">
+     <!-- <div *ngIf="!loggedIn" class="timeline-items">
+      <b>
+        <a href="/login" target="_self">Login to View Your Daily Tarabalam</a>
+      </b>
+    </div> -->
+    <div class="timeline-items"> <!-- *ngIf="loggedIn" -->
+    <b>
+      <i class="fa fa-star orange"></i> {{event.startformat}} Panchang 
+    </b>
+    </div>
+  </div>
+    
+    <table class="table table-bordered table-condensed table-striped table-hover">
+    <tbody>
+      <tr>
+        <td class="green bolder semi" data-title="&#39;Tithi&#39;">Tithi</td>
+        <td data-title="&#39;tithi&#39;">
+          {{event.tithi}}
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="red bolder semi" data-title="&#39;masam&#39;">Masam</td>
+        <td data-title="&#39;Masam&#39;">{{event.schedulePatternDetail}}</td>
+      </tr>
+      <tr>
+        <td class="red bolder semi" data-title="&#39;Nakshatram">
+          Nakshatram
+        </td>
+        <td data-title="&#39;Nakshatram">
+          {{event.star1name}} {{event.starttill1}} ,{{event.star2name}}  {{event.starttill2}}
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="red bolder semi" data-title="&#39;vardhaym">
+         Varjyam Timings
+        </td>
+        <td data-title="&#39;vardhyam">
+          {{event.vardhyam}}
+        </td>
+      </tr>
+      <tr>
+        <td class="black bolder" data-title="&#39;Dur muhurtham&#39;">
+          Durmuhurtham Timings(Raahu kaalam)
+        </td>
+        <td data-title="&#39;Dur muhurtham">
+          {{event.durmuhurtha}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
+    <h3> Tarabalam for {{event.starorigname}} </h3>
+
+
+  <div class="timeline-items">  <!-- *ngIf="loggedIn" -->
+    <div class="timeline-item clearfix">
+
+      <div class="timeline-info">
+        <span class="timeline-date"> From 12 am</span>
+        <i class="timeline-indicator icon icon-star btn btn-info no-hover"></i>
+      </div>
+
+      <div class="widget-box transparent">
+        <div class="widget-body">
+          <div class="widget-main no-padding">
+            <span class="text-110 semi">
+              <a href="javacript:void(0)">
+                {{event.star1name}}
+              </a>
+            </span>
+            <br>
+            <a href="javacript:void(0)" class="purple bolder" >{{event.star1comment}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [hidden]="event.starttill1 === &#39;23:59&#39;" class="timeline-item clearfix">
+      <div class="timeline-info">
+        <span class="timeline-date"> Until {{event.starttill1}}</span>
+        <i class="timeline-indicator btn btn-info no-hover"></i>
+      </div>
+
+      <div class="widget-box transparent">
+        <div class="widget-body">
+          <div class="widget-main no-padding">
+            <span class="text-110 semi">
+              <a href="javacript:void(0)">
+                {{event.star2name}}
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <a href="javacript:void(0)" class="purple bolder">{{event.star2comment}}</a>
+      </div>
+    </div>
+
+    <div class="timeline-item clearfix">
+      <div class="timeline-info">
+        <span class="timeline-date"> Until {{event.starttill2}}</span>
+        <i class="timeline-indicator btn btn-info no-hover"></i>
+      </div>
+
+      <div class="widget-box transparent">
+        <div class="widget-body">
+          <div class="widget-main no-padding"> End of Day </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  
+</div>

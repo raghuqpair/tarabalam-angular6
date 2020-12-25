@@ -1,0 +1,80 @@
+<div id="login-page">
+  <div class="overlay"></div>
+  <div id="login-form" class="register-form">
+    <h2 class="text-center  ">Register</h2>
+    <br>
+    <div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">First name</span>
+        <input type="text" class="form-control" [(ngModel)]="user.firstName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Last name</span>
+        <input type="text" class="form-control" [(ngModel)]="user.lastName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Email</span>
+        <input type="email" class="form-control" [(ngModel)]="user.email" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Day of Birth</span>
+          <input type="text"
+            matInput [matDatepicker]="picker" class="form-control"
+            [max]="maxDate"
+            (dateChange)="datePickerChange($event)"
+          />
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" (click)="picker.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+      <form>
+        <input id="dobDay" type="hidden" name="Day" [value]="dob.day"/>
+        <input id="dobMonth" type="hidden" name="Month" [value]="dob.month" />
+        <input id="dobYear" type="hidden" name="Year" [value]="dob.year" />
+        <div class="input-group form-group">
+          <span class="input-group-addon">Time of Birth</span>
+          <input type="text" class="form-control" [ngxTimepicker]="tp" [max]="maxTime" [disableClick]="true" [value]="tob.time"/>
+          <ngx-material-timepicker #tp (timeSet)="timeOfBirthChange($event)"></ngx-material-timepicker>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" (click)="tp.open()"><i style="font-size: 18px;" class="fa fa-clock-o"></i></button>
+          </span>
+        </div>
+        <input type="hidden" name="Hours" [value]="tob.hour" />
+        <input type="hidden" name="Minutes" [value]="tob.minute" />
+        <input type="hidden" name="Seconds" [value]="tob.second" />
+        <input type="hidden" name="ZoneHour" value="0" />
+        <input type="hidden" name="ZoneMin" value="0" />
+        <div class="input-group form-group">
+          <span class="input-group-addon">Place of Birth</span>
+          <app-place-of-birth [model]="user.placeOfBirth" (onChange)="placeOfBirthChange($event)"></app-place-of-birth>
+        </div>
+      </form>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Password</span>
+        <input type="password" class="form-control" [(ngModel)]="user.password" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Re-password</span>
+        <input type="password" class="form-control" [(ngModel)]="user.repassword" required>
+      </div>
+      <div class="clearfix">
+        <div class="form-group" #recaptcha></div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-8">
+          <button class="btn btn-primary btn-block" type="submit" [disabled]="!canSubmit()"  (click)="register()">Register</button>
+        </div>
+        <div class="form-group col-md-4">
+          <a class="btn btn-success btn-block" href="/login" target="_self">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #login-page {
+    background: none;
+  }
+</style>

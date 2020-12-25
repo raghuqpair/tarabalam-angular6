@@ -1,0 +1,7 @@
+<div class="row">
+  <div *ngFor="let item of holiday" class="col-md-4 col-sm-6 col-xs-12">
+    <h2>{{item.itemName}}</h2>
+    <p>{{item.itemTextDescription}}</p>
+    <iframe style="max-width: 100%;" width="560" height="315" src="{{item.itemVideoLink}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>

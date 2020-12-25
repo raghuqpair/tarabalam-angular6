@@ -1,0 +1,123 @@
+.comments .comment {
+	position: relative;
+	padding-left: 150px;
+	min-height: 100px;
+	font-size: 14px;
+}
+.comments .comment .author {
+	position: absolute;
+	left: 0;
+	text-align: right;
+	padding-right: 39px;
+	width: 150px;
+	color: #6fb3e0;
+	font-weight: 700;
+	margin-top: -2px;
+}
+.comments .comment .time-wrap {
+	position: absolute;
+}
+.comments .comment .time-wrap i {
+	color: #6fb3e0;
+}
+.comments .comment .time-wrap .time {
+	transform: translate(-50%, -3px);
+	-moz-transform: translate(-50%, -3px);
+	-webkit-transform: translate(-50%, -3px);
+	display: inline-block;
+	font-size: 10px;
+	color: #aaa;
+	margin-left: 6px;
+}
+.comments .comment .time-wrap:before {
+	content: "";
+	position: absolute;
+	top: 9px;
+	border-top: 2px solid #6fb3e0;
+	width: 30px;
+	left: -34px;
+}
+.comments .comment .time-wrap:after {
+	content: "";
+	position: absolute;
+	top: 9px;
+	border-top: 2px solid #6fb3e0;
+	width: 30px;
+	left: 14px;
+}
+.comments .comment .line {
+	top: 48px;
+	bottom: 0;
+	left: 155px;
+	position: absolute;
+	border-left: 2px solid #6fb3e0;
+}
+.comments .comment:last-child .line {
+	display: none;
+}
+.comments .comment .comment-content {
+	margin-left: 50px;
+}
+.comments .comment .comment-content .children {
+	padding-left: 15px;
+}
+.conversation {
+	max-width: 600px;
+}
+
+.conversation .comment {
+	margin-bottom: 15px;
+}
+.conversation .comment .comment-content {
+	padding: 15px;
+	border: 1px solid #e5e5ea;
+	border-radius: 8px;
+	max-width: 300px;
+	background: #e5e5ea;
+	font-weight: bold;
+	white-space: pre-line;
+}
+.conversation .comment b {
+	color: #000;
+}
+.conversation .comment > div {
+	float: left;
+	text-align: left;
+}
+.conversation .comment.own > div {
+	// float: right;
+	// text-align: right;
+}
+.conversation .comment.own > div .comment-content {
+	background: #3dabfc;
+	border-color: #3dabfc;
+	color: #fff;
+}
+.conversation .comment.own > div b {
+	// color: #3dabfc;
+	color: #3dabfc;
+}
+
+#messages table tr:nth-of-type(2n+2) {
+	background-color: #efefef;
+}
+#messages table tr td {
+	max-width: 400px;
+	border: 0;
+}
+#messages table tr td .message-title {
+	color: #e36480;
+}
+#messages table tr td .message-title:hover {
+	text-decoration: underline !important;
+}
+
+#single-message .btn {
+	min-width: 100px;
+}
+#single-message label {
+	min-width: 50%;
+}
+#single-message .message-content {
+	min-height: 60px;
+}

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "src/assets/css/fullcalendar.min.css";
+@import "src/assets/css/style.css";
+@import "src/assets/css/admin.css";
+body {
+  font-size: 15px !important;
+}
+.mat-calendar-body-selected {
+  background-color: #e36480;
+}
+.timepicker__header,
+.clock-face__number > span.active,
+.clock-face__clock-hand,
+.clock-face__clock-hand:after {
+  background-color: #e36480 !important;
+}
+.timepicker-button {
+  color: #e36480  !important;
+}
+.clock-face__clock-hand_minute:before {
+  border-color: #e36480 !important;
+}
